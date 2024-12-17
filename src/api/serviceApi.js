@@ -1,10 +1,9 @@
 import axios from 'axios';
 
-const API_URL = 'http://localhost:5000/api/clientes';
+const API_URL = 'http://localhost:5000/api/servicos';
 
-//https://servidor-estetica.onrender.com/api/clientes
-
-export const getClientes = async () => {
+// Função para buscar todos os serviços
+export const getServicos = async () => {
   const response = await axios.get(API_URL, {
     headers: {
       Authorization: `Bearer ${localStorage.getItem('token')}`
@@ -13,8 +12,9 @@ export const getClientes = async () => {
   return response.data;
 };
 
-export const createCliente = async (clienteData) => {
-  const response = await axios.post(API_URL, clienteData, {
+// Função para criar um novo serviço
+export const createServico = async (servicoData) => {
+  const response = await axios.post(API_URL, servicoData, {
     headers: {
       Authorization: `Bearer ${localStorage.getItem('token')}`
     }

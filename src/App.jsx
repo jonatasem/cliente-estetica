@@ -5,6 +5,7 @@ import Dashboard from './pages/Dashboard';
 import Register from './pages/Register';
 import Clientes from './pages/Clientes';
 import Cadastrar from './pages/Cadastrar';
+import Realizados from './pages/Realizados';
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
         <Route path="/dashboard" element={<Dashboard />} />
         <Route path="/clientes" element={<Clientes />} />
         <Route path="/cadastrar" element={<Cadastrar />} />
+        <Route path="/realizados" element={<Realizados />} />
       </Routes>
     </Router>
   );

@@ -24,8 +24,8 @@ const ClientForm = () => {
     <form className='client-form' onSubmit={handleSubmit}>
       <input type="text" placeholder="Nome" value={nome} onChange={(e) => setNome(e.target.value)} required />
       <input type="text" placeholder="Telefone" value={telefone} onChange={(e) => setTelefone(e.target.value)} required />
-      <input type="email" placeholder="Email" value={email} onChange={(e) => setEmail(e.target.value)} required />
-      <button type="submit">Cadastrar Cliente</button>
+      <input type="text" placeholder="Endereço" value={email} onChange={(e) => setEmail(e.target.value)} required />
+      <button className='btn-client-form' type="submit">Cadastrar Cliente</button>
     </form>
   );
 };

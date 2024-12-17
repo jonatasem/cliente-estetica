@@ -20,12 +20,6 @@ export default function Header() {
             <nav>
                 <ul>
                     <li>
-                        <Link to="/cadastrar">Cadastrar Cliente</Link>
-                    </li>
-                    <li>
-                        <Link to="/clientes">Clientes Cadastrados</Link>
-                    </li>
-                    <li>
                         <Link to="/" onClick={handleLogout}>Sair</Link>
                     </li>
                 </ul>

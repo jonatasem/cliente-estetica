@@ -1,0 +1,19 @@
+
+.container-navigation {
+    display: flex;
+    justify-content: space-around;
+}
+
+.container-navigation a {
+    margin: 1rem 0;
+    min-width: 30%;
+    text-align: center;
+    padding: 3rem 0;
+    color: white;
+    background-color: whitesmoke;
+    color: black;
+    box-shadow: 1px 1px 5px silver;
+}
+.container-navigation a:active {
+    transform: scale(0.99);
+}

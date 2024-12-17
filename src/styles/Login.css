@@ -1,39 +1,68 @@
+
 .container-login {
+    display: flex;
+    overflow: hidden;
+}
+
+.container-login article {
     width: 50%;
-    margin: 5% auto;
-    padding: 1.5rem;
-    border: 1px solid silver;
-    border-radius: 1rem 0 1rem 0;
-    box-shadow: 1px 1px 5px silver;
+    min-height: 100vh;
 }
 
-.container-login h2 {
-    margin-bottom: 2.5rem;
-}
-
-.container-login form {
+.login-img {
+    border-color: red;
+    background-image: url(../assets/img/fundo.jpeg);
+    background-position: center;
+    background-size: cover;
     display: flex;
     flex-direction: column;
-    padding: 1.5rem;
+    align-items: center;
+    justify-content: center;
+    font-family: fantasy;
 }
 
-.container-login form input {
-    margin: 0 2rem 1rem 2rem;
-    padding: 1rem;
-    border: 1px solid silver;
-    border-radius: 0.5rem;
+.login-img h1 {
+    font-size: 50px;
+    color: white;
+    text-shadow: 1px 1px 10px red;
 }
 
-.not-accont {
-    text-align: center;
+.login-img h2 {
+    color: white;
+    font-size: 40px;
+    text-shadow: 1px 1px 10px red;
+}
+
+.login-campo {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    justify-items: center;    
+    padding: 0 5rem;
+}
+
+.login-campo h2 {
+    margin-bottom: 1rem
+}
+
+.login-campo form {
+    display: flex;
+    flex-direction: column;
+}
+
+.login-campo form input {
+    margin: 1rem 0;
+    padding: 0.8rem 1rem;
 }
 
 .btn-login {
-    margin: 1rem 2rem 0;
     padding: 1rem 0;
-    background-color: black;
-    color: white;
-    border-color: transparent;
     border-radius: 0.5rem;
+    border: 1px solid silver;
+    background-color: transparent;
     cursor: pointer;
+}
+.btn-login:active {
+    transform: scale(0.99);
+    animation: 1s;
 }

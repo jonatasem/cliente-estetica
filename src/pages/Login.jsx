@@ -22,31 +22,31 @@ const Login = () => {
 
   return (
     <section className='container-login'>
-      <h2>Faça Login</h2>
-      <form onSubmit={handleSubmit}>
-        <input
-          type="text"
-          placeholder="Nome de Usuário"
-          value={username}
-          onChange={(e) => setUsername(e.target.value)}
-          required
-        />
-        <input
-          type="password"
-          placeholder="Senha"
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-          required
-        />
-        <button className='btn-login' type="submit">Entrar</button>
-      </form>
-      {/*
-      
-        <p className='not-accont'>
-          Não tem uma conta? <a href="/register">Registre-se aqui!</a>
-        </p>
-      
-      */}
+      <article className="login-img">
+        <h1>.GARAGE.</h1>
+        <h2>018</h2>
+        <h2>ESTÉTICA AUTOMOTIVA</h2>
+      </article>
+      <article className='login-campo'>
+        <h2>Faça Login</h2>
+        <form onSubmit={handleSubmit}>
+          <input
+            type="text"
+            placeholder="Nome de Usuário"
+            value={username}
+            onChange={(e) => setUsername(e.target.value)}
+            required
+          />
+          <input
+            type="password"
+            placeholder="Senha"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+            required
+          />
+          <button className='btn-login' type="submit">Entrar</button>
+        </form>
+      </article>
     </section>
   );
 };
