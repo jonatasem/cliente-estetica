@@ -1,0 +1,36 @@
+
+.container-register {
+    width: 50%;
+    margin: 5% auto;
+    padding: 1.5rem;
+    border: 1px solid silver;
+    border-radius: 1rem 0 1rem 0;
+    box-shadow: 1px 1px 5px silver;
+}
+
+.container-register h2 {
+    margin-bottom: 2.5rem;
+}
+
+.container-register form {
+    display: flex;
+    flex-direction: column;
+    padding: 1.5rem;
+}
+
+.container-register form input {
+    margin: 0 2rem 1rem 2rem;
+    padding: 1rem;
+    border: 1px solid silver;
+    border-radius: 0.5rem;
+}
+
+.btn-register {
+    margin: 0 2rem;
+    padding: 1rem 0;
+    background-color: black;
+    color: white;
+    border-color: transparent;
+    border-radius: 0.5rem;
+    cursor: pointer;
+}

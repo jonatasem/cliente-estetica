@@ -1,0 +1,32 @@
+
+.container-header {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 2rem;
+}
+
+.container-header nav ul {
+    display: flex;
+}
+
+.container-header nav ul li {
+    margin: 0 1rem;
+    list-style-type: none;
+}
+
+
+.logo {
+    text-align: start;
+    background-color: black;
+    padding: 0.5rem 1rem;
+}
+
+.logo h2 {
+    color: white;
+    font-size: 15px;
+}
+
+.logo-meio {
+    text-align: end;
+    margin-right: 3rem;
+}
