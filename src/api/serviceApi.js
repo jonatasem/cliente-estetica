@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const API_URL = 'http://localhost:5000/api/servicos';
+const API_URL = 'https://servidor-estetica.onrender.com/api/servicos';
 
 // Função para buscar todos os serviços
 export const getServicos = async () => {
@@ -21,3 +21,4 @@ export const createServico = async (servicoData) => {
   });
   return response.data;
 };
+

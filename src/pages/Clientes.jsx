@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { getClientes } from '../api/clientApi';
+import { getClientes, deleteCliente } from '../api/clientApi';
 import '../styles/Clientes.css';
 import { Link } from 'react-router-dom';
 
@@ -19,6 +19,13 @@ export default function Clientes() {
 
     fetchClients();
   }, []);
+
+  const handleDelete = async (id) => {
+    if (window.confirm('Tem certeza que deseja excluir este cliente?')) {
+      await deleteCliente(id);
+      setClientes(clientes.filter(cliente => cliente._id !== id)); // Atualiza a lista de clientes
+    }
+  };
 
   // Filtrando clientes com base no termo de busca
   const filteredClientes = clientes.filter(cliente => 
@@ -42,11 +49,16 @@ export default function Clientes() {
           filteredClientes.map(cliente => (
             <li key={cliente._id}>
                 <div>
-                    <p>Nome: {cliente.nome }</p>
+                    <p>Nome: {cliente.nome}</p>
                     <p>Telefone: {cliente.telefone}</p>
-                    <p>Endereço: {cliente.email}</p>
+                    <p>Endereço: {cliente.endereco}</p>
                 </div>
-                <button className='btn-editar'>Editar</button>
+                <div>
+                <Link to={`/editar-cliente/${cliente._id}`}>
+                  <button className='btn-editar'>Editar</button>
+                </Link>
+                <button className='btn-deletar' onClick={() => handleDelete(cliente._id)}>Deletar</button>
+                </div>
             </li>
           ))
         ) : (

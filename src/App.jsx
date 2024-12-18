@@ -6,6 +6,7 @@ import Register from './pages/Register';
 import Clientes from './pages/Clientes';
 import Cadastrar from './pages/Cadastrar';
 import Realizados from './pages/Realizados';
+import EditarCliente from './pages/EditarCliente';
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
         <Route path="/clientes" element={<Clientes />} />
         <Route path="/cadastrar" element={<Cadastrar />} />
         <Route path="/realizados" element={<Realizados />} />
+        <Route path="/editar-cliente/:id" element={<EditarCliente />} />
       </Routes>
     </Router>
   );

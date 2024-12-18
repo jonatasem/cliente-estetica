@@ -28,19 +28,20 @@ const Realizados = () => {
 
   // Calculando o total arrecadado e o número de veículos lavados
   const totalArrecadado = lavagensConcluidas.reduce((total, lavagem) => {
-    return total + (lavagem.preco || 0); // Supondo que cada lavagem tem um campo 'preco'
+    return total + (lavagem.preco || 0);
   }, 0);
   
   const numeroVeiculosLavados = lavagensConcluidas.length;
 
   const handleDownloadReport = () => {
-
-    const reportContent = `Quantidade de Veículos Lavados: ${numeroVeiculosLavados}\nValor Total Arrecadado: R$ ${totalArrecadado.toFixed(2)}`;
+    const today = new Date();
+    const formattedDate = today.toLocaleDateString('pt-BR');
+    const reportContent = `Relatório do dia ${formattedDate}\nQuantidade de Veículos Lavados: ${numeroVeiculosLavados}\nValor Total Arrecadado: R$ ${totalArrecadado.toFixed(2)}`;
     const blob = new Blob([reportContent], { type: 'text/plain' });
     const url = URL.createObjectURL(blob);
     const a = document.createElement('a');
     a.href = url;
-    a.download = 'relatorio_lavagens.txt';
+    a.download = `relatorio_lavagens_${formattedDate.replace(/\//g, '-')}.txt`;
     a.click();
     URL.revokeObjectURL(url);
   };
@@ -49,14 +50,21 @@ const Realizados = () => {
     <section className='container-realizados'>
       <article>
         <h2>Lavagens Concluídas</h2>
-        <WashList status="concluído" />
+        {loading ? (
+            <p>Carregando...</p>
+        ) : (
+            <>
+                {error && <p className="error-message">{error}</p>}
+                <WashList status="concluído" /> 
+            </>
+        )}
         <Link id='btn-voltar' to="/dashboard">Voltar</Link>
       </article>
       <article className='final-bg'>
         <h3>Resumo das Lavagens</h3>
         <p><strong>Número de Veículos Lavados:</strong> {numeroVeiculosLavados}</p>
         <p><strong>Valor Arrecadado:</strong> R$ {totalArrecadado.toFixed(2)}</p>
-        <button onClick={handleDownloadReport} className='btn-download'>Baixar Relatório</button>
+        <button onClick={handleDownloadReport} className='btn-download'>Baixar Relatório do Dia</button>
       </article>
     </section>
   );

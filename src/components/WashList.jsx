@@ -52,11 +52,12 @@ const WashList = ({ status }) => {
         lavagensFiltradas.map(lavagem => (
           <li key={lavagem._id} className='wash-item'>
             <div className='wash-details'>
-              <h3>Cliente: {lavagem.clienteId?.nome || 'Desconhecido'}</h3>
-              <p><strong>Placa:</strong> {lavagem.placa}</p>
-              <p><strong>Modelo:</strong> {lavagem.modelo}</p>
-              <p><strong>Tipo:</strong> {lavagem.tipoLavagem}</p>
-              <p><strong>Status:</strong> {lavagem.status}</p>
+              <h4>Cliente: {lavagem.clienteId?.nome || 'Desconhecido'}</h4>
+              <p>Placa: {lavagem.placa}</p>
+              <p>Modelo: {lavagem.modelo}</p>
+              <p>Tipo: {lavagem.tipoLavagem}</p>
+              <p>Status: {lavagem.status}</p>
+              <p>Preco: {lavagem.preco}</p>
             </div>
             {lavagem.status !== 'concluído' && (
               <button className='btn-concluir' onClick={() => handleConcluir(lavagem._id)}>Marcar como Concluída</button>

@@ -1,12 +1,13 @@
 import React from 'react';
 import WashList from './WashList';
+import '../styles/EmAndamento.css';
 
 const EmAndamento = () => {
   return (
-    <div>
+    <section className='container-em-andamento'>
       <h2>Lavagens em Andamento</h2>
       <WashList status="em andamento" />
-    </div>
+    </section>
   );
 };
 

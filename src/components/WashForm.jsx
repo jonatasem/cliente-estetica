@@ -10,7 +10,8 @@ const WashForm = () => {
   const [clientes, setClientes] = useState([]);
   const [servicos, setServicos] = useState([]);
   const [clienteId, setClienteId] = useState('');
-  const [data, setData] = useState(''); // Novo estado para a data
+  const [data, setData] = useState('');
+  const [preco, setPreco] = useState(0); // Novo estado para o preço
 
   useEffect(() => {
     const fetchClients = async () => {
@@ -35,16 +36,23 @@ const WashForm = () => {
     fetchServices();
   }, []);
 
+  const handleTipoLavagemChange = (e) => {
+    const selectedService = servicos.find(servico => servico.nome === e.target.value);
+    setTipoLavagem(e.target.value);
+    setPreco(selectedService ? selectedService.preco : 0); // Atualiza o preço com base no serviço selecionado
+  };
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      await createLavagem({ placa, modelo, tipoLavagem, clienteId, data }); // Incluindo a data
+      await createLavagem({ placa, modelo, tipoLavagem, clienteId, data, preco }); // Incluindo o preço
       alert('Lavagem criada com sucesso!');
       setPlaca('');
       setModelo('');
       setTipoLavagem('');
       setClienteId('');
-      setData(''); // Resetando a data
+      setData('');
+      setPreco(0); // Resetando o preço
     } catch (error) {
       console.error(error);
       alert('Erro ao criar lavagem.');
@@ -71,10 +79,10 @@ const WashForm = () => {
         required 
       />
 
-      <select value={tipoLavagem} onChange={(e) => setTipoLavagem(e.target.value)} required>
+      <select value={tipoLavagem} onChange={handleTipoLavagemChange} required>
         <option value="">Selecione um tipo de lavagem</option>
         {servicos.map(servico => (
-          <option key={servico._id} value={servico.nome}>{servico.nome} - R$ {servico.preco.toFixed(2)}</option>
+          <option key={servico._id} value={servico.nome}>{servico.nome} - R$ {servico.preco}</option>
         ))}
       </select>
 

@@ -68,3 +68,12 @@
     top: 50px;
     right: 50px;
 }
+
+@media (max-width:768px) {
+    .cadastrar-left {
+        display: none;
+    }
+    #cadastrar-right {
+        width: 100%;
+    }
+}

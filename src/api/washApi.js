@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const API_URL = 'http://localhost:5000/api/lavagens';
+const API_URL = 'https://servidor-estetica.onrender.com/api/lavagens';
 
 export const getLavagens = async () => {
   const response = await axios.get(API_URL, {

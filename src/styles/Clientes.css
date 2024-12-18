@@ -30,3 +30,35 @@
 .container-clientes ul li div p {
     margin-bottom: 0.2rem;
 }
+
+.btn-client-form {
+    cursor: pointer;
+}
+
+.btn-deletar,
+.btn-editar {
+    cursor: pointer;
+}
+
+.btn-editar {
+    margin-right: 1rem;
+    background-color: #f8cb03;
+    color: white;
+    border: 1px solid #f8cb03;
+}
+.btn-deletar {
+    background-color: red;
+    padding: 0.8rem 2rem;
+    border: 1px solid red;
+    border-radius: 0.5rem;
+    color: white;
+}
+
+@media (max-width:768px) {
+    .container-clientes {
+        padding: 1.5rem 0rem;
+    }
+    .container-clientes h2 {
+        margin-left: 2rem;
+    }
+}

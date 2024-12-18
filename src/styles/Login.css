@@ -66,3 +66,21 @@
     transform: scale(0.99);
     animation: 1s;
 }
+
+.btn-new-cadastro {
+    text-align: center;
+    margin-top: 1rem;
+    color: black;
+}
+
+@media (max-width:768px) {
+    .container-login {
+        flex-direction: column;
+    }
+    .login-img {
+        display: none;
+    }
+    #login-campo {
+        width: 100%;
+    }
+}

@@ -3,6 +3,10 @@
     background-color: #f9f9f9;
 }
 
+select {
+    max-width: 90%;
+}
+
 .container-dashboard article h2 {
     margin-bottom: 1rem;
 }
@@ -29,3 +33,15 @@
     justify-content: end;
 }
 
+@media (max-width:1160px) {
+    .container-wash-form input,
+    .container-wash-form select {
+        margin-bottom: 1rem;
+    }
+}
+
+@media (max-width:500px) {
+    .btn-washform {
+        padding: 1rem;
+    }
+}

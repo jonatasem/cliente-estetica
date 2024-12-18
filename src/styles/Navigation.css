@@ -7,13 +7,29 @@
 .container-navigation a {
     margin: 1rem 0;
     min-width: 30%;
+    font-size: 30px;
     text-align: center;
     padding: 3rem 0;
     color: white;
-    background-color: whitesmoke;
-    color: black;
     box-shadow: 1px 1px 5px silver;
 }
 .container-navigation a:active {
     transform: scale(0.99);
+}
+
+.btn-navigation-realizados,
+.btn-navigation-cadastrar,
+.btn-navigation-cadastrados {
+    background-position: center;
+    background-size: cover;
+}
+
+.btn-navigation-realizados {
+    background-image: url(../assets/img/menu-00.jpeg);
+}
+.btn-navigation-cadastrar {
+    background-image: url(../assets/img/menu-01.jpeg);
+}
+.btn-navigation-cadastrados {
+    background-image: url(../assets/img/menu-02.png);
 }

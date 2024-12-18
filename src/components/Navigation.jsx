@@ -4,9 +4,9 @@ import '../styles/Navigation.css';
 export default function Navigation(){
     return (
         <section className="container-navigation">
-            <Link to="/cadastrar">Cadastrar Clientes</Link>
-            <Link to="/clientes">Clientes Cadastrados</Link>
-            <Link to="/realizados">Realizados</Link>
+            <Link className='btn-navigation-cadastrar' to="/cadastrar">Cadastrar Clientes</Link>
+            <Link className='btn-navigation-cadastrados' to="/clientes">Clientes Cadastrados</Link>
+            <Link className='btn-navigation-realizados' to="/realizados">Realizados</Link>
         </section>
     )
 }

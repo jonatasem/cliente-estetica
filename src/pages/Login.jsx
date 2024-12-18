@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import axios from 'axios';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import '../styles/Login.css';
 
 const Login = () => {
@@ -27,7 +27,7 @@ const Login = () => {
         <h2>018</h2>
         <h2>ESTÉTICA AUTOMOTIVA</h2>
       </article>
-      <article className='login-campo'>
+      <article className='login-campo' id='login-campo'>
         <h2>Faça Login</h2>
         <form onSubmit={handleSubmit}>
           <input
@@ -46,6 +46,7 @@ const Login = () => {
           />
           <button className='btn-login' type="submit">Entrar</button>
         </form>
+        <Link className='btn-new-cadastro' to="/register">Não tem Cadastro? Faça aqui</Link>
       </article>
     </section>
   );

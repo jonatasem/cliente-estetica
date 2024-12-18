@@ -1,15 +1,11 @@
 
 .container-register {
-    width: 50%;
-    margin: 5% auto;
-    padding: 1.5rem;
-    border: 1px solid silver;
-    border-radius: 1rem 0 1rem 0;
-    box-shadow: 1px 1px 5px silver;
+    display: flex;
+    overflow: hidden;
 }
-
-.container-register h2 {
-    margin-bottom: 2.5rem;
+.container-register article {
+    width: 50%;
+    min-height: 100vh;
 }
 
 .container-register form {
@@ -20,7 +16,7 @@
 
 .container-register form input {
     margin: 0 2rem 1rem 2rem;
-    padding: 1rem;
+    padding: 1rem 3rem 1rem 1rem;
     border: 1px solid silver;
     border-radius: 0.5rem;
 }
@@ -33,4 +29,28 @@
     border-color: transparent;
     border-radius: 0.5rem;
     cursor: pointer;
+}
+
+.register-right {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.register-right h2 {
+    margin: 0 0 1rem 2rem;
+}
+
+.register-left {
+    background-image: url(../assets/img/fundo-new-acccont.png);
+    background-size: cover;
+}
+
+@media (max-width:768px) {
+    .register-left {
+        display: none;
+    }
+    #register-right {
+        width: 100%;
+    }
 }

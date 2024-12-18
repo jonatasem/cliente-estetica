@@ -11,6 +11,10 @@ body {
     position: relative;
 }
 
+h4 {
+    font-weight: 400;
+}
+
 input {
     outline: 0;
 }
