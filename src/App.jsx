@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-
 import { FaBars } from "react-icons/fa";
 import { BsXLg } from "react-icons/bs";
 
@@ -12,61 +11,58 @@ import Dashboard from './pages/Dashboard';
 import Header from './components/Header';
 import NewAppointments from './pages/NewAppointments';
 import EditClient from './pages/EditClient';
+import { AuthProvider } from './context/AuthContext';
+import ProtectedRoute from './components/ProtectedRoute';
+import Login from './components/Login';
+import NewEmployee from './components/NewEmployee';
 
 import './styles/App.css';
 
 function App() {
-  const [isHeaderVisible, setHeaderVisible] = useState(true); // Estado para controlar a visibilidade do cabeçalho
+  const [isHeaderVisible, setHeaderVisible] = useState(true);
 
   const toggleHeader = () => {
     setHeaderVisible(!isHeaderVisible);
   };
 
-  // Efeito para controlar a visibilidade do cabeçalho em telas menores
   useEffect(() => {
     const handleResize = () => {
-      if (window.innerWidth >= 999) {
-        setHeaderVisible(true); // Mostra o cabeçalho em telas maiores
-      } else if (window.innerWidth < 999) {
-        setHeaderVisible(false); // Oculta o cabeçalho em telas menores
-      }
+      setHeaderVisible(window.innerWidth >= 999);
     };
 
-    handleResize(); // Chama a função uma vez ao carregar
-    window.addEventListener('resize', handleResize); // Adiciona o listener
+    handleResize(); // Chama inicialmente para definir o estado correto
+    window.addEventListener('resize', handleResize);
 
-    return () => window.removeEventListener('resize', handleResize); // Limpa o listener ao desmontar
+    return () => window.removeEventListener('resize', handleResize);
   }, []);
 
-  //função fechar o header ao clicar em um dos links
-  const choseMob = () => {
-    if(window.innerWidth < 999){
-      setHeaderVisible(false);
-    }
-  }
-
   return (
-    <Router>
-      <main className="app-container">
-        <section className={`app-left ${isHeaderVisible ? 'visible' : 'hidden'}`}>
-          <Header choseMob={choseMob}/>
-        </section>
-        <section className="app-right">
-          <Routes>
-            <Route path="/" element={<Dashboard />} />
-            <Route path="/new-service" element={<NewService />} />
-            <Route path="/new-client" element={<NewClient />} />
-            <Route path="/new-appointments" element={<NewAppointments />} />
-            <Route path="/history" element={<History />} />
-            <Route path="/edit-client/:id" element={<EditClient />} />
-            <Route path="/clients" element={<Clients />} />
-          </Routes>
-        </section>
-        <div className="mobile" onClick={toggleHeader}>
-          {isHeaderVisible ? <BsXLg /> : <FaBars />}
-        </div>
-      </main>
-    </Router>
+    <AuthProvider>
+      <Router>
+        <main className="app-container">
+          <section className={`app-left ${isHeaderVisible ? 'visible' : 'hidden'}`}>
+            <Header />
+          </section>
+          <section className="app-right">
+            <Routes>
+              <Route path="/" element={<Login />} />
+              <Route path="/login" element={<Login />} />
+              <Route path="/register" element={<NewEmployee />} />
+              <Route path="/dashboard" element={<ProtectedRoute><Dashboard /></ProtectedRoute>} />
+              <Route path="/new-service" element={<ProtectedRoute><NewService /></ProtectedRoute>} />
+              <Route path="/new-client" element={<ProtectedRoute><NewClient /></ProtectedRoute>} />
+              <Route path="/new-appointments" element={<ProtectedRoute><NewAppointments /></ProtectedRoute>} />
+              <Route path="/history" element={<ProtectedRoute><History /></ProtectedRoute>} />
+              <Route path="/edit-client/:id" element={<ProtectedRoute><EditClient /></ProtectedRoute>} />
+              <Route path="/clients" element={<ProtectedRoute><Clients /></ProtectedRoute>} />
+            </Routes>
+          </section>
+          <div className="mobile" onClick={toggleHeader}>
+            {isHeaderVisible ? <BsXLg /> : <FaBars />}
+          </div>
+        </main>
+      </Router>
+    </AuthProvider>
   );
 }
 

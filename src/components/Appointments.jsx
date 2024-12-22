@@ -77,7 +77,7 @@ const Appointments = ({ status }) => {
           ))
         ) : (
           <tr>
-            <td colSpan="7" className='msg'>Nenhuma lavagem {status === 'em andamento' ? 'em andamento' : 'concluída'} encontrada.</td>
+            <td colSpan="6" className='msg'>Nenhuma lavagem {status === 'em andamento' ? 'em andamento' : 'concluída'} encontrada.</td>
           </tr>
         )}
       </tbody>
