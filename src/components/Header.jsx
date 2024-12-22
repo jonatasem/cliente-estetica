@@ -1,14 +1,21 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
 import '../styles/Header.css';
 
 export default function Header({ choseMob }) {
-    const location = useLocation(); // Obtém a localização atual
-    const [activeLink, setActiveLink] = useState('/'); // Inicializa o link ativo como a página inicial
+    const location = useLocation();
+    const [activeLink, setActiveLink] = useState(location.pathname);
+
+    useEffect(() => {
+        setActiveLink(location.pathname);
+    }, [location]);
 
     const handleLinkClick = (path) => {
-        setActiveLink(path); // Atualiza o link ativo
-        choseMob(); // Chama a função para ocultar o cabeçalho em dispositivos móveis
+        setActiveLink(path);
+        // Verifica se a largura da tela é menor que 999px
+        if (window.innerWidth < 999) {
+            choseMob(); // Chama a função se a condição for atendida
+        }
     };
 
     return (
@@ -18,8 +25,8 @@ export default function Header({ choseMob }) {
                     <h3>Home</h3>
                     <li>
                         <Link 
-                            to="/" 
-                            onClick={() => handleLinkClick('/')}
+                            to="/dashboard" 
+                            onClick={() => handleLinkClick('/dashboard')}
                             className={activeLink === '/' ? 'active' : ''}
                         >
                             Inicio
@@ -60,7 +67,7 @@ export default function Header({ choseMob }) {
                     </li>
                 </ul>
                 <ul>
-                    <h3>Cadastrar</h3>
+                    <h3>Agendamentos</h3>
                     <li>
                         <Link 
                             to="/new-appointments" 

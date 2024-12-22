@@ -6,13 +6,12 @@ import '../styles/Login.css';
 export default function Login() {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
-  const { login: authLogin } = useAuth(); // Obtendo a função de login do contexto
+  const { login: authLogin } = useAuth();
   const navigate = useNavigate();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      // Tente logar usando a função do contexto
       await authLogin(username, password);
       navigate('/dashboard'); // Redireciona para o dashboard após o login
     } catch (error) {

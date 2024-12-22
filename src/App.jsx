@@ -30,7 +30,7 @@ function App() {
       setHeaderVisible(window.innerWidth >= 999);
     };
 
-    handleResize(); // Chama inicialmente para definir o estado correto
+    handleResize();
     window.addEventListener('resize', handleResize);
 
     return () => window.removeEventListener('resize', handleResize);
@@ -41,7 +41,7 @@ function App() {
       <Router>
         <main className="app-container">
           <section className={`app-left ${isHeaderVisible ? 'visible' : 'hidden'}`}>
-            <Header />
+            <Header choseMob={toggleHeader} />
           </section>
           <section className="app-right">
             <Routes>

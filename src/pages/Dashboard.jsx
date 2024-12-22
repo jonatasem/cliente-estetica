@@ -1,5 +1,5 @@
 import '../styles/Dashboard.css';
-
+import { useAuth } from '../context/AuthContext'
 import React, { useState, useEffect } from 'react';
 
 import Appointments from '../components/Appointments';
@@ -11,6 +11,8 @@ const Dashboard = () => {
   const toggleHeader = () => {
     setHeaderVisible(prev => !prev);
   };
+
+  const { user } = useAuth();
 
   const handleResize = () => {
     setHeaderVisible(window.innerWidth >= 850);
@@ -28,8 +30,12 @@ const Dashboard = () => {
     <div className="container-central">
         <ul className='nav-main'>
           <li>
-            <h1><strong>ICON</strong> Olá, bom dia User!</h1>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+            {user ? (
+                <h1>Bem-vindo, {user.username}!</h1>
+            ) : (
+                <h1>Bem-vindo!</h1>
+            )}
+            <p>Gerenciador de Lava Rapido com cadastro de clientes em um banco de dados.</p>
           </li>
         </ul>
         <article className='container-em-andamento'>
