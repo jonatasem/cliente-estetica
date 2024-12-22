@@ -44,3 +44,17 @@
 .btn-deletar:active {
     transform: scale(0.9);
 }
+
+@media (max-width:750px) {
+    .clients-container {
+        padding: 1.5rem 0;
+    }
+    .client-actions {
+        flex-direction: column;
+    }
+    .client-actions button {
+        margin: 0 0 0.5rem 0;
+    }
+}
+
+

@@ -46,29 +46,42 @@ const Appointments = ({ status }) => {
   const lavagensFiltradas = lavagens.filter(lavagem => lavagem.status === status);
 
   return (
-    <ul className='container-list-lavagens'>
-      {lavagensFiltradas.length > 0 ? (
-        lavagensFiltradas.map(lavagem => (
-          <li key={lavagem._id} className='wash-item'>
-            <div className='wash-details'>
-              <h4>Cliente: {lavagem.clienteId?.nome || 'Desconhecido'}</h4>
-              <p>Placa: {lavagem.placa}</p>
-              <p>Modelo: {lavagem.modelo}</p>
-              <p>Tipo: {lavagem.tipoLavagem}</p>
-              <p>Status: {lavagem.status}</p>
-              <p>Preço: R$ {typeof lavagem.preco === 'number' && !isNaN(lavagem.preco) ? lavagem.preco.toFixed(2) : 'N/A'}</p>
-            </div>
-            {lavagem.status !== 'concluído' && (
-              <button className='btn-concluir' onClick={() => handleConcluir(lavagem._id)}>
-                <BsCheck2 />
-              </button>
-            )}
-          </li>
-        ))
-      ) : (
-        <p className='msg'>Nenhuma lavagem {status === 'em andamento' ? 'em andamento' : 'concluída'} encontrada.</p>
-      )}
-    </ul>
+    <table className='container-table-lavagens'>
+      <thead>
+        <tr>
+          <th>Cliente</th>
+          <th>Placa</th>
+          <th>Modelo</th>
+          <th className='off-table'>Status</th>
+          <th className='off-form'>Preço</th>
+          <th>Ações</th>
+        </tr>
+      </thead>
+      <tbody>
+        {lavagensFiltradas.length > 0 ? (
+          lavagensFiltradas.map(lavagem => (
+            <tr key={lavagem._id} className='wash-item'>
+              <td>{lavagem.clienteId?.nome || 'Desconhecido'}</td>
+              <td>{lavagem.placa}</td>
+              <td>{lavagem.modelo}</td>
+              <td className='off-table'>{lavagem.status}</td>
+              <td className='off-form'>R$ {typeof lavagem.preco === 'number' && !isNaN(lavagem.preco) ? lavagem.preco.toFixed(2) : 'N/A'}</td>
+              <td>
+                {lavagem.status !== 'concluído' && (
+                  <button className='btn-concluir' onClick={() => handleConcluir(lavagem._id)}>
+                    Concluir <BsCheck2 />
+                  </button>
+                )}
+              </td>
+            </tr>
+          ))
+        ) : (
+          <tr>
+            <td colSpan="7" className='msg'>Nenhuma lavagem {status === 'em andamento' ? 'em andamento' : 'concluída'} encontrada.</td>
+          </tr>
+        )}
+      </tbody>
+    </table>
   );
 };
 

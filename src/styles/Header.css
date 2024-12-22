@@ -1,36 +1,36 @@
 .container-header {
     width: 350px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
     text-align: center;
-    background-color: rgba(63, 63, 63, 0.199);
     position: fixed;
     min-height: 100vh;
-    background-color: silver;
 }
-.container-header nav ul {
-    margin: 1rem 0;
-    padding: 0;
-    list-style: none;
-}
-.container-header nav ul h2 {
-
-    margin-bottom: 1rem;
+.container-header nav {
+    width: 90%;
+    background-color: white;
+    box-shadow: 1px 1px 5px silver;
+    border-radius: 1.5rem;
+    margin: 1.5rem auto 0;
+    padding: 1rem;
+    text-align: start;
 }
 .container-header nav ul li {
     width: 100%;
-    padding: 0.5rem 1rem;
-    margin-bottom: 1rem;
+    text-align: center;
+    margin: 0.5rem 0;
+    padding: 0.5rem 0;
 }
 .container-header nav ul li a {
     display: block;
-    transition: 0.3s;
     cursor: pointer;
-    padding: 1rem;
-    background-color: white;
-    text-decoration: none;
+    padding: 1rem 0;
+    background-color: whitesmoke;
 }
 .container-header nav ul li a:hover {
-    color: red;
+    box-shadow: 1px 1px 5px silver;
+    border-radius: 0.5rem;
+    transition: 0.5s;
+}
+.active {
+    box-shadow: 1px 1px 5px silver;
+    border-radius: 0.5rem;
 }

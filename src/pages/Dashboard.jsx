@@ -35,10 +35,7 @@ const Dashboard = () => {
         <article className='container-em-andamento'>
           <h2>Serviços em Andamento</h2>
           <Appointments status="em andamento" />
-        </article>
-        <footer className='container-footer'>
-          <p>Todos os direitos reservados - Jonatas Elieser Moreira</p>
-        </footer>      
+        </article>     
     </div>
   );
 };

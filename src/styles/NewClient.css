@@ -12,19 +12,32 @@
     font-size: 18px;
     width: 100%;
     margin-bottom: 1rem;
-    cursor: pointer;
     border: 1px solid silver;
 }
 
+.btn-clientform {
+    width: 100%;
+    text-align: end;
+}
 .btn-clientform button {
     padding: 1rem 2rem;
     margin-top: 1rem;
-    border: 1px solid silver;
+    border-color: transparent;
     border-radius: 0.5rem;
-    background-color: transparent;
     cursor: pointer;
+    background-color: white;
+    box-shadow: 1px 1px 5px silver;
+}
+.btn-clientform button:hover {
+    transform: scale(1.05);
+    transition: 0.5s;
 }
 .btn-clientform button:active {
-    transform: scale(0.90);
-    transition: 1s;
+    transform: scale(1);
+}
+
+@media (max-width:750px) {
+    .container-new-client {
+        padding: 1.5rem 0;
+    }
 }

@@ -1,13 +1,6 @@
 .app-container {
     display: flex;
-    min-height: 100vh;
-    background-color: white;
     position: relative;
-}
-
-.app-left,
-.app-right {
-    min-height: 100vh;
 }
 
 .app-left {

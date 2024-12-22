@@ -26,3 +26,8 @@
     transform: scale(0.90);
     transition: 1s;
 }
+@media (max-width:750px) {
+    .container-new-appointments {
+        padding: 1.5rem 0;
+    }
+}

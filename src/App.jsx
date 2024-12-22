@@ -19,7 +19,7 @@ function App() {
   const [isHeaderVisible, setHeaderVisible] = useState(true); // Estado para controlar a visibilidade do cabeçalho
 
   const toggleHeader = () => {
-    setHeaderVisible(!isHeaderVisible); // Alterna a visibilidade do cabeçalho
+    setHeaderVisible(!isHeaderVisible);
   };
 
   // Efeito para controlar a visibilidade do cabeçalho em telas menores
@@ -38,9 +38,11 @@ function App() {
     return () => window.removeEventListener('resize', handleResize); // Limpa o listener ao desmontar
   }, []);
 
-
+  //função fechar o header ao clicar em um dos links
   const choseMob = () => {
-    isHeaderVisible = false;
+    if(window.innerWidth < 999){
+      setHeaderVisible(false);
+    }
   }
 
   return (

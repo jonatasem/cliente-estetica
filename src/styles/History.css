@@ -65,6 +65,12 @@
     }
 }
 
+@media (max-width:500px) {
+    .container-history {
+        padding: 1.5rem 0rem;
+    }
+}
+
 @media (max-width:450px) {
     .res-off {
         display: none;
