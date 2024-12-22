@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from 'react';
-import { getLavagens, updateLavagemStatus } from '../api/washApi';
+import { getLavagens, updateLavagemStatus } from '../api/appointmentsApi';
+import { BsCheck2 } from "react-icons/bs";
 
-const WashList = ({ status }) => {
+const Appointments = ({ status }) => {
   const [lavagens, setLavagens] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
@@ -13,7 +14,6 @@ const WashList = ({ status }) => {
         setLavagens(data);
       } catch (error) {
         setError('Erro ao carregar as lavagens. Tente novamente mais tarde.');
-        console.error(error);
       } finally {
         setLoading(false);
       }
@@ -43,7 +43,6 @@ const WashList = ({ status }) => {
     return <p className='error'>{error}</p>;
   }
 
-  // Filtrando lavagens com base no status recebido como prop
   const lavagensFiltradas = lavagens.filter(lavagem => lavagem.status === status);
 
   return (
@@ -57,10 +56,12 @@ const WashList = ({ status }) => {
               <p>Modelo: {lavagem.modelo}</p>
               <p>Tipo: {lavagem.tipoLavagem}</p>
               <p>Status: {lavagem.status}</p>
-              <p>Preco: {lavagem.preco}</p>
+              <p>Preço: R$ {typeof lavagem.preco === 'number' && !isNaN(lavagem.preco) ? lavagem.preco.toFixed(2) : 'N/A'}</p>
             </div>
             {lavagem.status !== 'concluído' && (
-              <button className='btn-concluir' onClick={() => handleConcluir(lavagem._id)}>Marcar como Concluída</button>
+              <button className='btn-concluir' onClick={() => handleConcluir(lavagem._id)}>
+                <BsCheck2 />
+              </button>
             )}
           </li>
         ))
@@ -71,4 +72,4 @@ const WashList = ({ status }) => {
   );
 };
 
-export default WashList;
+export default Appointments;

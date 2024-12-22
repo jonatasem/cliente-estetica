@@ -1,0 +1,73 @@
+.container-history {
+    padding: 1.5rem;
+}
+.container-history h1 {
+    margin-bottom: 1rem;
+}
+
+.nav-concluidas {
+    display: flex;
+    justify-content: space-between;
+}
+
+.btn-concluidas {
+    display: flex;
+    flex-direction: column;
+}
+.btn-concluidas button {
+    padding: 0.5rem 1rem;
+    margin: 0.5rem 0;
+    cursor: pointer;
+}
+.btn-concluidas button:active {
+    transform: scale(0.9);
+}
+.btn-remover-concluidas {
+    background-color: red;
+    border-color: red;
+    color: white;
+    border-radius: 0.2rem;
+}
+
+/* Estilos da tabela */
+.table-lavagens {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 1rem;
+}
+
+.table-lavagens th, .table-lavagens td {
+    padding: 0.75rem;
+    text-align: left;
+    border: 1px solid #ddd; /* Borda sutil para as células */
+}
+
+.table-lavagens thead {
+    background-color: #f2f2f2; /* Fundo claro para o cabeçalho */
+    font-weight: bold;
+}
+
+.table-lavagens tbody tr:nth-child(even) {
+    background-color: #f9f9f9; /* Fundo claro para linhas pares */
+}
+
+.table-lavagens tbody tr:nth-child(odd) {
+    background-color: #ffffff; /* Fundo branco para linhas ímpares */
+}
+
+.table-lavagens th {
+    border-bottom: 2px solid silver; /* Borda mais escura abaixo do cabeçalho */
+}
+
+@media (max-width:768px) {
+    .off {
+        display: none;
+    }
+}
+
+@media (max-width:450px) {
+    .res-off {
+        display: none;
+    }
+}
+

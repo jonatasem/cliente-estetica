@@ -1,0 +1,63 @@
+.app-container {
+    display: flex;
+    min-height: 100vh;
+    background-color: white;
+    position: relative;
+}
+
+.app-left,
+.app-right {
+    min-height: 100vh;
+}
+
+.app-left {
+    width: 350px; /* Largura do cabeçalho */
+    transition: transform 0.3s ease; /* Transição suave para o cabeçalho */
+    z-index: 2;
+}
+
+.app-left.hidden {
+    transform: translateX(-100%); /* Cabeçalho movido para fora da tela */
+}
+
+.app-left.visible {
+    transform: translateX(0); /* Cabeçalho visível */
+}
+
+.app-right {
+    width: calc(100% - 350px); /* Largura do conteúdo */
+    padding: 1.5rem;
+    position: absolute;
+    left: 350px; /* Posição inicial do conteúdo */
+    transition: left 0.3s ease; /* Transição suave para o conteúdo */
+}
+
+@media (max-width: 999px) {
+    .app-left {
+        transform: translateX(-100%); /* Cabeçalho fora da tela em dispositivos móveis */
+    }
+
+    .app-left.visible {
+        transform: translateX(0); /* Cabeçalho visível */
+    }
+
+    .app-right {
+        width: 100%; /* O conteúdo ocupa toda a largura */
+        left: 0; /* Move o conteúdo para a esquerda */
+    }
+}
+
+.mobile {
+    display: none; /* Inicialmente oculto */
+    position: absolute;
+    top: 20px; /* Posição do ícone no topo */
+    right: 20px; /* Posição do ícone à direita */
+    font-size: 30px; /* Tamanho do ícone */
+    cursor: pointer; /* Cursor de ponteiro */
+}
+
+@media (max-width: 999px) {
+    .mobile {
+        display: block; /* Mostra o ícone em dispositivos móveis */
+    }
+}

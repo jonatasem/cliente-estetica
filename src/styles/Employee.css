@@ -1,0 +1,30 @@
+
+.container-new-employee {
+    padding: 1.5rem;
+}
+
+.container-new-employee h1 {
+    margin-bottom: 1rem;
+}
+
+.container-register article input {
+    padding: 0.5rem 1rem;
+    font-size: 18px;
+    width: 100%;
+    margin-bottom: 1rem;
+    cursor: pointer;
+    border: 1px solid silver;
+}
+
+.btn-register {
+    padding: 1rem 2rem;
+    margin-top: 1rem;
+    border: 1px solid silver;
+    border-radius: 0.5rem;
+    background-color: transparent;
+    cursor: pointer;
+}
+.btn-register:active {
+    transform: scale(0.90);
+    transition: 1s;
+}

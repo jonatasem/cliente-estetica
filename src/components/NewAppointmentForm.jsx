@@ -1,17 +1,16 @@
 import React, { useEffect, useState } from 'react';
-import { createLavagem } from '../api/washApi';
+import { createLavagem } from '../api/appointmentsApi';
 import { getClientes } from '../api/clientApi';
 import { getServicos } from '../api/serviceApi';
 
-const WashForm = () => {
+const NewAppointmentForm = () => {
   const [placa, setPlaca] = useState('');
   const [modelo, setModelo] = useState('');
   const [tipoLavagem, setTipoLavagem] = useState('');
   const [clientes, setClientes] = useState([]);
   const [servicos, setServicos] = useState([]);
   const [clienteId, setClienteId] = useState('');
-  const [data, setData] = useState('');
-  const [preco, setPreco] = useState(0); // Novo estado para o preço
+  const [preco, setPreco] = useState(0);
 
   useEffect(() => {
     const fetchClients = async () => {
@@ -39,20 +38,20 @@ const WashForm = () => {
   const handleTipoLavagemChange = (e) => {
     const selectedService = servicos.find(servico => servico.nome === e.target.value);
     setTipoLavagem(e.target.value);
-    setPreco(selectedService ? selectedService.preco : 0); // Atualiza o preço com base no serviço selecionado
+    setPreco(selectedService ? selectedService.preco : 0); // Atualiza o preço
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      await createLavagem({ placa, modelo, tipoLavagem, clienteId, data, preco }); // Incluindo o preço
+      await createLavagem({ placa, modelo, tipoLavagem, clienteId, preco });
       alert('Lavagem criada com sucesso!');
+
       setPlaca('');
       setModelo('');
       setTipoLavagem('');
       setClienteId('');
-      setData('');
-      setPreco(0); // Resetando o preço
+      setPreco(0);
     } catch (error) {
       console.error(error);
       alert('Erro ao criar lavagem.');
@@ -71,14 +70,6 @@ const WashForm = () => {
       <input type="text" placeholder="Placa" value={placa} onChange={(e) => setPlaca(e.target.value)} required />
       <input type="text" placeholder="Modelo" value={modelo} onChange={(e) => setModelo(e.target.value)} required />
       
-      <input 
-        type="date" 
-        className="data" 
-        value={data} 
-        onChange={(e) => setData(e.target.value)} 
-        required 
-      />
-
       <select value={tipoLavagem} onChange={handleTipoLavagemChange} required>
         <option value="">Selecione um tipo de lavagem</option>
         {servicos.map(servico => (
@@ -93,4 +84,4 @@ const WashForm = () => {
   );
 };
 
-export default WashForm;
+export default NewAppointmentForm;

@@ -1,0 +1,30 @@
+
+.container-new-client {
+    padding: 1.5rem;
+}
+
+.container-new-client h1 {
+    margin-bottom: 1rem;
+}
+
+.container-client-form input {
+    padding: 0.5rem 1rem;
+    font-size: 18px;
+    width: 100%;
+    margin-bottom: 1rem;
+    cursor: pointer;
+    border: 1px solid silver;
+}
+
+.btn-clientform button {
+    padding: 1rem 2rem;
+    margin-top: 1rem;
+    border: 1px solid silver;
+    border-radius: 0.5rem;
+    background-color: transparent;
+    cursor: pointer;
+}
+.btn-clientform button:active {
+    transform: scale(0.90);
+    transition: 1s;
+}
