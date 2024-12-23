@@ -1,0 +1,66 @@
+
+.container-new-employee {
+    display: flex;
+}
+
+.container-new-employee article {
+    width: 50%;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.employee-left h1 {
+    margin-bottom: 1rem;
+    font-size: 35px;
+}
+
+.employee-left p {
+    margin-bottom: 1.5rem;
+}
+
+.employee-left form {
+    display: flex;
+    flex-direction: column;
+}
+
+.employee-left form input {
+    padding: 0.5rem 1rem;
+    border-radius: 0.5rem;
+    border: 1px solid silver;
+    margin: 0.5rem 0;
+    font-size: 15px;
+}
+
+.btn-new-employee {
+    padding: 0.5rem 0;
+    border-radius: 0.5rem;
+    border-color: transparent;
+    background-color: #fe4646;
+    color: white;
+    font-size: 15px;
+    margin-top: 1rem;
+    cursor: pointer;
+}
+
+.employee-right {
+    background-color: #fe4646;
+    color: white;
+}
+.employee-right h1 {
+    font-size: 35px;
+}
+.employee-right p {
+    margin: 1rem 0 2rem;
+}
+.employee-right button {
+    padding: 0.5rem 2rem;
+    border-radius: 0.5rem;
+    border: 1px solid silver;
+    background-color: transparent;
+    color: white;
+    font-size: 15px;
+    cursor: pointer;
+}

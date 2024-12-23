@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { createLavagem } from '../api/appointmentsApi';
 import { getClientes } from '../api/clientApi';
 import { getServicos } from '../api/serviceApi';
+import { Link } from 'react-router-dom';
 
 const NewAppointmentForm = () => {
   const [placa, setPlaca] = useState('');
@@ -79,6 +80,9 @@ const NewAppointmentForm = () => {
 
       <div className='btn-washform'>
         <button className='btn-criar' type="submit">Criar Agendamento</button>
+        <button className='btn-back-to-home'>
+          <Link to="/dashboard">Voltar para o Inicio</Link>
+        </button>
       </div>
     </form>
   );

@@ -53,6 +53,9 @@ const Clients = () => {
           </li>
         ))}
       </ul>
+      <button className='btn-back-to-home'>
+        <Link to="/dashboard">Voltar para o Inicio</Link>
+      </button>
     </div>
   );
 };

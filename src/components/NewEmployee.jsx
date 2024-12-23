@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { register } from '../api/userApi';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
+import '../styles/NewEmployee.css';
 
 export default function NewEmployee() {
   const [username, setUsername] = useState('');
@@ -14,27 +15,25 @@ export default function NewEmployee() {
 
     try {
       await register({ username, password });
-      navigate('/login'); // Redireciona para a página de login após o registro
+      navigate('/login');
     } catch (err) {
       setError(err.response?.data?.message || 'Erro ao registrar. Tente novamente.');
     }
   };
 
   return (
-    <section>
-      <h2>Registrar</h2>
+    <section className='container-new-employee'>
       {error && <p className="error">{error}</p>}
-      <form onSubmit={handleSubmit}>
-        <article>
+      <article className='employee-left'>
+        <h1>Criar Conta</h1>
+        <form onSubmit={handleSubmit}>
           <label>Usuário:</label>
           <input 
-            type="text" 
+            type="text"
             value={username} 
             onChange={(e) => setUsername(e.target.value)} 
             required 
           />
-        </article>
-        <article>
           <label>Senha:</label>
           <input 
             type="password" 
@@ -42,9 +41,19 @@ export default function NewEmployee() {
             onChange={(e) => setPassword(e.target.value)} 
             required 
           />
-        </article>
-        <button type="submit">Registrar</button>
-      </form>
+          <button className="btn-new-employee">
+            Criar Conta
+          </button> 
+        </form>
+      </article>
+      <article className='employee-right'>
+        <h1>Olá, Amigo!</h1>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+        <p>Já tem uma conta?</p>
+        <Link to="/login">
+          <button>Faça Login</button>
+        </Link>
+      </article>
     </section>
   );
 }

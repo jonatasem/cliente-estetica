@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { createCliente } from '../api/clientApi';
+import { Link } from 'react-router-dom';
 
 const NewClientForm = () => {
   const [nome, setNome] = useState('');
@@ -81,10 +82,15 @@ const NewClientForm = () => {
       />
 
       <div className='btn-clientform'>
-        <button className='btn-criar' type="submit">Criar Cliente</button>
+        <button className='btn-criar' type="submit">Cadastrar Cliente</button>
+        <button>
+          <Link to="/dashboard">Voltar para o Inicio</Link>
+        </button>
       </div>
     </form>
   );
 };
 
 export default NewClientForm;
+
+

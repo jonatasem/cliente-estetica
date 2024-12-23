@@ -30,6 +30,10 @@
     transition: 1s;
 }
 
+.btn-criar {
+    margin-right: 1rem;
+}
+
 @media (max-width:750px) {
     .container-new-service {
         padding: 1.5rem 0;

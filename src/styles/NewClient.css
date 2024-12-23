@@ -21,12 +21,12 @@
 }
 .btn-clientform button {
     padding: 1rem 2rem;
-    margin-top: 1rem;
     border-color: transparent;
     border-radius: 0.5rem;
     cursor: pointer;
     background-color: white;
     box-shadow: 1px 1px 5px silver;
+    margin: 1rem 0 0 1rem;
 }
 .btn-clientform button:hover {
     transform: scale(1.05);

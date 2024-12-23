@@ -22,10 +22,21 @@ export default function Login() {
 
   return (
     <section className='container-login'>
-      <h2>Login</h2>
-      <form className='form-login' onSubmit={handleSubmit}>
-        <article>
-          <label>Usuário:</label>
+      <article className='login-left'>
+        <h1>Bem Vindo de Volta!</h1>
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Consectetur, nobis distinctio ducimus eum cum voluptas soluta cupiditate.
+        </p>
+        <Link to="/register">
+          <button className='btn-register'>
+            Registrar
+          </button>
+        </Link>
+      </article>
+      <article className='login-right'>
+        <h1>Login</h1>
+        <form className='form-login' onSubmit={handleSubmit}>
+          <label htmlFor="username">Usuário</label>
           <input 
             type="text" 
             value={username} 
@@ -33,9 +44,7 @@ export default function Login() {
             required 
             autoComplete="username"
           />
-        </article>
-        <article>
-          <label>Senha:</label>
+          <label htmlFor="password">Senha</label>
           <input 
             type="password" 
             value={password} 
@@ -43,11 +52,9 @@ export default function Login() {
             required 
             autoComplete="current-password"
           />
-        </article>
-        <button className='btn-register' type="submit">Login</button>
-      </form>
-      
-      <Link to="/register">Ainda não tem uma conta? Crie Aqui</Link>
+          <button className="btn-logar" type="submit">Logar</button>
+        </form>
+      </article>
     </section>
   );
 }

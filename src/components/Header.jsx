@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
 import '../styles/Header.css';
 
-export default function Header({ choseMob }) {
+export default function Header() {
     const location = useLocation();
     const [activeLink, setActiveLink] = useState(location.pathname);
 
@@ -10,13 +10,6 @@ export default function Header({ choseMob }) {
         setActiveLink(location.pathname);
     }, [location]);
 
-    const handleLinkClick = (path) => {
-        setActiveLink(path);
-        // Verifica se a largura da tela é menor que 999px
-        if (window.innerWidth < 999) {
-            choseMob(); // Chama a função se a condição for atendida
-        }
-    };
 
     return (
         <header className="container-header">
@@ -26,7 +19,6 @@ export default function Header({ choseMob }) {
                     <li>
                         <Link 
                             to="/dashboard" 
-                            onClick={() => handleLinkClick('/dashboard')}
                             className={activeLink === '/' ? 'active' : ''}
                         >
                             Inicio
@@ -38,7 +30,6 @@ export default function Header({ choseMob }) {
                     <li>
                         <Link 
                             to="/new-client" 
-                            onClick={() => handleLinkClick('/new-client')}
                             className={activeLink === '/new-client' ? 'active' : ''}
                         >
                             Novo Cliente
@@ -47,10 +38,17 @@ export default function Header({ choseMob }) {
                     <li>
                         <Link 
                             to="/new-service" 
-                            onClick={() => handleLinkClick('/new-service')}
                             className={activeLink === '/new-service' ? 'active' : ''}
                         >
                             Novo Serviço
+                        </Link>
+                    </li>
+                    <li>
+                        <Link 
+                            to="/register" 
+                            className={activeLink === '/register' ? 'active' : ''}
+                        >
+                            Novo Usuário
                         </Link>
                     </li>
                 </ul>
@@ -59,7 +57,6 @@ export default function Header({ choseMob }) {
                     <li>
                         <Link 
                             to="/clients" 
-                            onClick={() => handleLinkClick('/clients')}
                             className={activeLink === '/clients' ? 'active' : ''}
                         >
                             Clientes Cadastrados
@@ -71,7 +68,6 @@ export default function Header({ choseMob }) {
                     <li>
                         <Link 
                             to="/new-appointments" 
-                            onClick={() => handleLinkClick('/new-appointments')}
                             className={activeLink === '/new-appointments' ? 'active' : ''}
                         >
                             Novo Agendamento
@@ -80,7 +76,6 @@ export default function Header({ choseMob }) {
                     <li>
                         <Link 
                             to="/history" 
-                            onClick={() => handleLinkClick('/history')}
                             className={activeLink === '/history' ? 'active' : ''}
                         >
                             Histórico de Realizados

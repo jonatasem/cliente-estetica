@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { getLavagens, deleteLavagem } from '../api/appointmentsApi';
+import { Link } from 'react-router-dom';
 
 const Concluidos = ({ setLavagensConcluidas }) => {
   const [lavagens, setLavagens] = useState([]);
@@ -110,6 +111,9 @@ const Concluidos = ({ setLavagensConcluidas }) => {
       ) : (
         <p>Nenhum agendamento concluído encontrado.</p>
       )}
+      <button className='btn-back-to-home'>
+        <Link to="/dashboard">Voltar para o Inicio</Link>
+      </button>
     </section>
   );
 };

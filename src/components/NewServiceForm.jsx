@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { createServico } from '../api/serviceApi';
+import { Link } from 'react-router-dom';
 
 const NewServiceForm = () => {
   const [nome, setNome] = useState('');
@@ -48,6 +49,9 @@ const NewServiceForm = () => {
 
       <div className='btn-serviceform'>
         <button className='btn-criar' type="submit">Criar Serviço</button>
+        <button>
+          <Link to="/dashboard">Voltar para o Inicio</Link>
+        </button>
       </div>
     </form>
   );
