@@ -49,9 +49,9 @@ export default function NewEmployee() {
       <article className='employee-right'>
         <h1>Olá, Amigo!</h1>
         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
-        <p>Já tem uma conta?</p>
+        <h2>Já tem uma conta?</h2>
         <Link to="/login">
-          <button>Faça Login</button>
+          <button className='btn-logar'>Faça Login</button>
         </Link>
       </article>
     </section>

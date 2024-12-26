@@ -1,0 +1,21 @@
+.loading {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 16px;
+    color: #333;
+}
+
+.icon-loading {
+    animation: animar-icon 2s infinite linear;
+    margin-left: 10px;
+}
+
+@keyframes animar-icon {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}

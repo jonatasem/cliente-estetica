@@ -16,7 +16,8 @@ li {
     list-style-type: none;
 }
 
-input {
+input,
+select {
     outline: 0;
 }
 
@@ -41,4 +42,107 @@ Link, a {
     border: 1px solid silver;
     border-radius: 0.5rem;
     box-shadow: 1px 1px 5px silver;
+}
+
+
+/*forms*/
+.container-form h2 {
+    margin-bottom: 1rem;
+}
+.container-form select,
+.container-form input {
+    width: 100%;
+    padding: 0.5rem;
+    margin: 0.5rem 0;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 15px;
+}
+
+.container-form button {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    margin: 2rem 0 0;
+    cursor: pointer;
+    border-radius: 5px;
+    font-size: 15px;
+}
+
+.container-form button:hover {
+    background-color: #3f9942;
+}
+
+.container-button {
+    width: 100%;
+    display: flex;
+    justify-content: end;
+}
+
+.title-index {
+    margin-bottom: 2rem;
+}
+
+.container-table-lavagens {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 1.5rem;
+}
+
+.container-table-lavagens th,
+.container-table-lavagens td {
+    border: 1px solid #ddd;
+    padding: 12px;
+    text-align: left;
+}
+
+.container-table-lavagens th {
+    background-color: #6e9987;
+    color: white;
+    font-weight: bold;
+}
+
+.container-table-lavagens td {
+    background-color: #f9f9f9;
+    transition: background-color 0.3s;
+}
+
+.container-table-lavagens tr:hover td {
+    background-color: #e0e4ce;
+}
+
+.wash-item {
+    transition: transform 0.2s;
+}
+
+.wash-item:hover {
+    transform: scale(1.02);
+}
+
+.btn-concluir {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 15px;
+}
+
+.btn-concluir:hover {
+    background-color: #3f9942;
+}
+
+.error {
+    color: red;
+    font-weight: bold;
+    text-align: center;
+    margin: 2rem auto;
+}
+
+.msg {
+    text-align: center;
+    color: #666;
+    margin: 1.5rem 0;
 }

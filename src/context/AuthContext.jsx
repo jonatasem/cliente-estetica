@@ -13,7 +13,7 @@ export const AuthProvider = ({ children }) => {
   useEffect(() => {
     const token = localStorage.getItem('token');
     if (token) {
-      // Você pode querer decodificar o token para obter informações do usuário
+      // Aqui você pode querer decodificar o token para obter informações do usuário
       setUser({ username: "jonatas" }); // Simulação de um usuário autenticado
     }
   }, []);

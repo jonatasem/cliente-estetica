@@ -10,7 +10,6 @@ export default function Header() {
         setActiveLink(location.pathname);
     }, [location]);
 
-
     return (
         <header className="container-header">
             <nav>
@@ -18,8 +17,8 @@ export default function Header() {
                     <h3>Home</h3>
                     <li>
                         <Link 
-                            to="/dashboard" 
-                            className={activeLink === '/' ? 'active' : ''}
+                            to="/home" 
+                            className={activeLink === '/home' ? 'active' : ''}
                         >
                             Inicio
                         </Link>
@@ -41,14 +40,6 @@ export default function Header() {
                             className={activeLink === '/new-service' ? 'active' : ''}
                         >
                             Novo Serviço
-                        </Link>
-                    </li>
-                    <li>
-                        <Link 
-                            to="/register" 
-                            className={activeLink === '/register' ? 'active' : ''}
-                        >
-                            Novo Usuário
                         </Link>
                     </li>
                 </ul>

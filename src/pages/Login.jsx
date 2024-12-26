@@ -13,7 +13,7 @@ export default function Login() {
     e.preventDefault();
     try {
       await authLogin(username, password);
-      navigate('/dashboard'); // Redireciona para o dashboard após o login
+      navigate('/home');
     } catch (error) {
       console.error('Erro ao fazer login:', error);
       alert('Erro ao fazer login. Verifique suas credenciais.');

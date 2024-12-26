@@ -1,66 +1,97 @@
-
-.container-new-employee {
+.container-new-employee,
+.container-login {
     display: flex;
-}
-
-.container-new-employee article {
-    width: 50%;
+    flex-wrap: wrap;
     min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
 }
 
-.employee-left h1 {
-    margin-bottom: 1rem;
-    font-size: 35px;
+.container-new-employee article,
+.container-login article {
+    width: 100%;
+    max-width: 500px; /* Limita a largura máxima */
+    padding: 2rem;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    margin: 1rem;
+    border-radius: 8px;
+    transition: transform 0.2s;
 }
 
-.employee-left p {
-    margin-bottom: 1.5rem;
+.container-new-employee article:hover,
+.container-login article:hover {
+    transform: translateY(-5px); /* Efeito de hover */
 }
 
-.employee-left form {
-    display: flex;
-    flex-direction: column;
-}
-
-.employee-left form input {
-    padding: 0.5rem 1rem;
-    border-radius: 0.5rem;
-    border: 1px solid silver;
-    margin: 0.5rem 0;
-    font-size: 15px;
-}
-
-.btn-new-employee {
-    padding: 0.5rem 0;
-    border-radius: 0.5rem;
-    border-color: transparent;
-    background-color: #fe4646;
+.employee-left {
+    background-color: #6e9987;
     color: white;
-    font-size: 15px;
-    margin-top: 1rem;
-    cursor: pointer;
 }
 
 .employee-right {
-    background-color: #fe4646;
+    background-color: #e0e4ce;
+    color: #6e9987;
+}
+
+.login-left {
+    background-color: #e0e4ce;
+    color: black;
+}
+
+.login-right {
+    background-color: #6e9987;
     color: white;
 }
-.employee-right h1 {
-    font-size: 35px;
+
+h1 {
+    margin-bottom: 1rem;
+    font-size: 2rem;
 }
-.employee-right p {
-    margin: 1rem 0 2rem;
+
+label {
+    margin-top: 1rem;
 }
-.employee-right button {
-    padding: 0.5rem 2rem;
-    border-radius: 0.5rem;
-    border: 1px solid silver;
-    background-color: transparent;
+
+input {
+    padding: 0.8rem;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+    margin-top: 0.5rem;
+    width: 100%;
+}
+
+.btn-new-employee,
+.btn-logar,
+.btn-register {
+    padding: 0.8rem;
+    border: none;
+    border-radius: 4px;
+    background-color: #6e9987;
     color: white;
-    font-size: 15px;
+    font-size: 1rem;
     cursor: pointer;
+    margin-top: 1rem;
+    width: 100%;
+}
+
+.btn-new-employee:hover,
+.btn-logar:hover,
+.btn-register:hover {
+    background-color: #5a7f72;
+}
+
+.error {
+    color: red;
+    font-weight: bold;
+    margin-bottom: 1rem;
+}
+/* Responsividade */
+@media (max-width: 768px) {
+    .container-new-employee,
+    .container-login {
+        flex-direction: column;
+    }
+
+    .container-new-employee article,
+    .container-login article {
+        width: 90%; /* Ajusta a largura em telas menores */
+    }
 }

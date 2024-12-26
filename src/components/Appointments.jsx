@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { getLavagens, updateLavagemStatus } from '../api/appointmentsApi';
 import { BsCheck2 } from "react-icons/bs";
+import Loading from '../components/Loading'; // Importando o novo componente de loading
 
 const Appointments = ({ status }) => {
   const [lavagens, setLavagens] = useState([]);
@@ -36,7 +37,7 @@ const Appointments = ({ status }) => {
   };
 
   if (loading) {
-    return <p className='loading'>Carregando lavagens...</p>;
+    return <Loading tipo='em andamento' />; // Passando o tipo para o componente de loading
   }
 
   if (error) {
@@ -52,8 +53,8 @@ const Appointments = ({ status }) => {
           <th>Cliente</th>
           <th>Placa</th>
           <th>Modelo</th>
-          <th className='off-table'>Status</th>
-          <th className='off-form'>Preço</th>
+          <th className='off-status'>Status</th>
+          <th className='off-preco'>Preço</th>
           <th>Ações</th>
         </tr>
       </thead>
@@ -64,8 +65,8 @@ const Appointments = ({ status }) => {
               <td>{lavagem.clienteId?.nome || 'Desconhecido'}</td>
               <td>{lavagem.placa}</td>
               <td>{lavagem.modelo}</td>
-              <td className='off-table'>{lavagem.status}</td>
-              <td className='off-form'>R$ {typeof lavagem.preco === 'number' && !isNaN(lavagem.preco) ? lavagem.preco.toFixed(2) : 'N/A'}</td>
+              <td className='off-status'>{lavagem.status}</td>
+              <td className='off-preco'>R$ {typeof lavagem.preco === 'number' && !isNaN(lavagem.preco) ? lavagem.preco.toFixed(2) : 'N/A'}</td>
               <td>
                 {lavagem.status !== 'concluído' && (
                   <button className='btn-concluir' onClick={() => handleConcluir(lavagem._id)}>
